@@ -29,6 +29,19 @@ class ArgonHasher implements HasherContract
     protected $threads = 2;
 
     /**
+     * Create a new hasher instance.
+     *
+     * @param  array  $options
+     * @return void
+     */
+    public function __construct(array $options = [])
+    {
+        $this->time = $options['time'] ?? $this->time;
+        $this->memory = $options['memory'] ?? $this->memory;
+        $this->threads = $options['threads'] ?? $this->threads;
+    }
+
+    /**
      * Get information about the given hashed value.
      *
      * @param  string  $hashedValue
